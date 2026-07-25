@@ -14,7 +14,7 @@ html{
 }
 
 body{
-background: linear-gradient(135deg, #142198, #d4af37);
+    background: linear-gradient(135deg, #142198, #030303);
     color:#222;
 }
 
@@ -27,81 +27,54 @@ nav{
     top:0;
     width:100%;
     height:80px;
-
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     padding:0 70px;
-
     background:#fff;
-
     box-shadow:0 2px 15px rgba(0,0,0,.08);
-
     z-index:1000;
 }
 
 .logo{
-
     font-size:34px;
     font-weight:900;
-
 }
 
 .logo span{
-
     color:#ff9800;
-
 }
 
 nav ul{
-
     display:flex;
     list-style:none;
-
 }
 
 nav ul li{
-
     margin:0 18px;
-
 }
 
 nav ul li a{
-
     text-decoration:none;
     color:#222;
-
     font-size:18px;
-
     transition:.3s;
-
 }
 
 nav ul li a:hover{
-
     color:#ff9800;
-
 }
 
 .icons i{
-
     margin-left:20px;
-
     cursor:pointer;
-
     font-size:22px;
-
     transition:.3s;
-
 }
 
 .icons i:hover{
-
     color:#ff9800;
-
     transform:scale(1.2);
-
 }
 
 /* ===========================
@@ -109,209 +82,126 @@ Hero
 =========================== */
 
 .hero{
-
     height:100vh;
-
     background:url(images/hero.jpg);
-
     background-size:cover;
-
     background-position:center;
-
     position:relative;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
 }
 
 .overlay{
-
     position:absolute;
-
     inset:0;
-
     background:rgba(0,0,0,.5);
-
 }
 
 .content{
-
     position:relative;
-
     color:white;
-
     text-align:center;
-
 }
 
 .content h1{
-
     font-size:70px;
-
     margin-bottom:20px;
-
 }
 
 .content p{
-
     font-size:22px;
-
     margin-bottom:35px;
-
 }
 
 .content a{
-
     text-decoration:none;
-
     background:#ff9800;
-
     color:white;
-
     padding:16px 45px;
-
     border-radius:40px;
-
     transition:.3s;
-
 }
 
 .content a:hover{
-
     background:white;
-
     color:#111;
-
 }
-
 /* ===========================
 Products
 =========================== */
 
 .products{
-
     width:90%;
-
     margin:100px auto;
-
 }
 
 .products h2{
-
     text-align:center;
-
     font-size:40px;
-
     margin-bottom:50px;
-
 }
 
 .products-container{
-
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
     gap:30px;
-
 }
 
 .card{
-
     background:white;
-
     border-radius:15px;
-
     overflow:hidden;
-
     box-shadow:0 8px 20px rgba(0,0,0,.1);
-
     transition:.4s;
-
 }
 
 .card:hover{
-
     transform:translateY(-10px);
-
     box-shadow:0 15px 30px rgba(0,0,0,.2);
-
 }
 
 .card img{
-
     width:100%;
-
     height:300px;
-
     object-fit:cover;
-
 }
 
 .info{
-
     padding:20px;
-
 }
 
 .info h3{
-
     font-size:24px;
-
     margin-bottom:10px;
-
 }
 
 .info p{
-
     color:#666;
-
     margin-bottom:15px;
-
 }
 
 .info span{
-
     display:block;
-
     color:#ff9800;
-
     font-size:24px;
-
     font-weight:bold;
-
     margin-bottom:20px;
-
 }
 
 .info button{
-
     width:100%;
-
     padding:15px;
-
     border:none;
-
     background:#111;
-
     color:white;
-
     border-radius:8px;
-
     cursor:pointer;
-
     transition:.3s;
-
 }
 
 .info button:hover{
-
     background:#ff9800;
-
 }
 
 /* ===========================
@@ -319,82 +209,87 @@ Footer
 =========================== */
 
 footer{
-
     margin-top:100px;
-
     background:#111;
-
     color:white;
-
     text-align:center;
-
     padding:40px;
-
 }
 
 footer h3{
-
     margin-bottom:10px;
-
 }
-
 /* ===========================
 Responsive
 =========================== */
 
-@media(max-width:1100px){
+@media (max-width:1100px){
 
 .products-container{
-
-grid-template-columns:repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
 }
 
 }
 
-@media(max-width:800px){
+@media (max-width:800px){
 
 nav{
-
-padding:20px;
-
+    padding:20px;
 }
 
 nav ul{
-
-display:none;
-
+    display:none;
 }
 
 .content h1{
-
-font-size:45px;
-
+    font-size:45px;
 }
 
 .products-container{
-
-grid-template-columns:repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
 }
 
 }
 
-@media(max-width:600px){
+@media (max-width:600px){
 
 .products-container{
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
 
-grid-template-columns:1fr;
+.card img{
+    height:180px;
+}
 
+.info{
+    padding:12px;
+}
+
+.info h3{
+    font-size:16px;
+}
+
+.info p{
+    font-size:13px;
+}
+
+.info span{
+    font-size:18px;
+}
+
+.info button{
+    padding:10px;
+    font-size:14px;
 }
 
 .content h1{
-
-font-size:35px;
-
+    font-size:35px;
 }
 
 }
+
 footer{
     width:100%;
     background:#111;
