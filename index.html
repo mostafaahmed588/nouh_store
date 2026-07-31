@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fashion Store</title>
+<title>Nouh Store</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -23,9 +24,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 <nav>
 
 <div class="logo">
-
-Nouh store<span>.</span>
-
+Nouh Store<span>.</span>
 </div>
 
 <div class="icons">
@@ -42,6 +41,11 @@ Nouh store<span>.</span>
 <i class="fa-brands fa-instagram"></i>
 </a>
 
+<div class="cart-icon">
+<i class="fa-solid fa-cart-shopping"></i>
+<span id="cart-count">0</span>
+</div>
+
 </div>
 
 </nav>
@@ -57,11 +61,10 @@ Nouh store<span>.</span>
 <h1>New Collection 2026</h1>
 
 <p>
-
 اكتشف أحدث صيحات الموضة بأفضل الأسعار.
-
 </p>
 
+<a href="#products">تسوق الآن</a>
 
 </div>
 
@@ -69,13 +72,13 @@ Nouh store<span>.</span>
 
 <!-- Products -->
 
-<section class="products">
+<section class="products" id="products">
 
 <h2>أحدث المنتجات</h2>
 
 <div class="products-container">
 
-<!-- كرر الكارت ده 10 مرات -->
+<!-- المنتج الأول -->
 
 <div class="card">
 
@@ -83,16 +86,27 @@ Nouh store<span>.</span>
 
 <div class="info">
 
-<h3 >الشميز الترند (white)</h3>
+<h3>الشميز الترند (White)</h3>
 
 <p>جاكوار قطن</p>
 
 <span>450 جنيه</span>
 
+<button class="add-cart"
+data-name="الشميز الترند White"
+data-price="450">
+
+<i class="fa-solid fa-cart-plus"></i>
+
+أضف إلى السلة
+
+</button>
 
 </div>
 
 </div>
+
+<!-- المنتج الثاني -->
 
 <div class="card">
 
@@ -100,17 +114,26 @@ Nouh store<span>.</span>
 
 <div class="info">
 
-<h3>الشميز الترند (pink)</h3>
+<h3>الشميز الترند (Pink)</h3>
 
 <p>جاكوار قطن</p>
 
 <span>450 جنيه</span>
 
+<button class="add-cart"
+data-name="الشميز الترند Pink"
+data-price="450">
 
+<i class="fa-solid fa-cart-plus"></i>
+
+أضف إلى السلة
+
+</button>
 
 </div>
 
 </div>
+<!-- المنتج الثالث -->
 
 <div class="card">
 
@@ -118,17 +141,27 @@ Nouh store<span>.</span>
 
 <div class="info">
 
-<h3>الشميز الترند (yellow)</h3>
+<h3>الشميز الترند (Yellow)</h3>
 
 <p>جاكوار قطن</p>
 
 <span>450 جنيه</span>
 
+<button class="add-cart"
+data-name="الشميز الترند Yellow"
+data-price="450">
 
+<i class="fa-solid fa-cart-plus"></i>
+
+أضف إلى السلة
+
+</button>
 
 </div>
 
 </div>
+
+<!-- المنتج الرابع -->
 
 <div class="card">
 
@@ -136,17 +169,27 @@ Nouh store<span>.</span>
 
 <div class="info">
 
-<h3>الشميز الترند (mint green)</h3>
+<h3>الشميز الترند (Mint Green)</h3>
 
 <p>جاكوار قطن</p>
 
 <span>450 جنيه</span>
 
+<button class="add-cart"
+data-name="الشميز الترند Mint Green"
+data-price="450">
 
+<i class="fa-solid fa-cart-plus"></i>
+
+أضف إلى السلة
+
+</button>
 
 </div>
 
 </div>
+
+<!-- المنتج الخامس -->
 
 <div class="card">
 
@@ -154,207 +197,385 @@ Nouh store<span>.</span>
 
 <div class="info">
 
-<h3>شال ستان (navy blue)</h3>
+<h3>شال ستان (Navy Blue)</h3>
 
 <p>ستان</p>
 
 <span>400 جنيه</span>
 
+<button class="add-cart"
+data-name="شال ستان Navy Blue"
+data-price="400">
 
+<i class="fa-solid fa-cart-plus"></i>
+
+أضف إلى السلة
+
+</button>
 
 </div>
 
 </div>
+
+<!-- المنتج السادس -->
 
 <div class="card">
 
-<img src="images/WhatsApp Image 2026-07-25 at 1.15.47 AM (1).jpeg" >
+<img src="images/WhatsApp Image 2026-07-25 at 1.15.47 AM (1).jpeg">
 
 <div class="info">
 
-<h3> شال ستان (brown)</h3>
+<h3>شال ستان (Brown)</h3>
 
-<p> ستان </p>
+<p>ستان</p>
 
 <span>400 جنيه</span>
 
+<button class="add-cart"
+data-name="شال ستان Brown"
+data-price="400">
+
+<i class="fa-solid fa-cart-plus"></i>
+
+أضف إلى السلة
+
+</button>
 
 </div>
 
 </div>
 
-
-
+<!-- المنتج السابع -->
 
 <div class="card">
 
-<img src="images/WhatsApp Image 2026-07-25 at 1.15.47 AM.jpeg" >
+<img src="images/WhatsApp Image 2026-07-25 at 1.15.47 AM.jpeg">
 
 <div class="info">
 
-<h3> شال ستان (burgundy)</h3>
+<h3>شال ستان (Burgundy)</h3>
 
-<p> ستان </p>
+<p>ستان</p>
 
 <span>400 جنيه</span>
 
+<button class="add-cart"
+data-name="شال ستان Burgundy"
+data-price="400">
+
+<i class="fa-solid fa-cart-plus"></i>
+
+أضف إلى السلة
+
+</button>
 
 </div>
 
 </div>
 
-
+<!-- المنتج الثامن -->
 
 <div class="card">
 
-<img src="images/WhatsApp Image 2026-07-25 at 1.15.46 AM.jpeg" >
+<img src="images/WhatsApp Image 2026-07-25 at 1.15.46 AM.jpeg">
 
 <div class="info">
 
-<h3> شال ستان (black)</h3>
+<h3>شال ستان (Black)</h3>
 
-<p> ستان </p>
+<p>ستان</p>
 
 <span>400 جنيه</span>
 
+<button class="add-cart"
+data-name="شال ستان Black"
+data-price="400">
+
+<i class="fa-solid fa-cart-plus"></i>
+
+أضف إلى السلة
+
+</button>
 
 </div>
 
 </div>
-
-
+<!-- المنتج التاسع -->
 
 <div class="card">
 
-<img src="images/WhatsApp Image 2026-07-25 at 1.45.49 AM.jpeg" >
+<img src="images/WhatsApp Image 2026-07-25 at 1.45.49 AM.jpeg">
 
 <div class="info">
 
-<h3> لونج شميز(off white)</h3>
+<h3>لونج شميز (Off White)</h3>
 
-<p> جاكوار قطن </p>
+<p>جاكوار قطن</p>
 
 <span>650 جنيه</span>
 
+<button class="add-cart"
+data-name="لونج شميز Off White"
+data-price="650">
+
+<i class="fa-solid fa-cart-plus"></i>
+
+أضف إلى السلة
+
+</button>
 
 </div>
+
 </div>
 
+<!-- المنتج العاشر -->
 
 <div class="card">
 
-<img src="images/WhatsApp Image 2026-07-25 at 1.56.21 AM (1).jpeg" >
+<img src="images/WhatsApp Image 2026-07-25 at 1.56.21 AM (1).jpeg">
 
 <div class="info">
 
-<h3>بلوزه (burgundy)</h3>
+<h3>بلوزة (Burgundy)</h3>
 
-<p> تنسيل بليسيه</p>
+<p>تنسيل بليسيه</p>
 
 <span>600 جنيه</span>
 
+<button class="add-cart"
+data-name="بلوزة Burgundy"
+data-price="600">
+
+<i class="fa-solid fa-cart-plus"></i>
+
+أضف إلى السلة
+
+</button>
 
 </div>
+
 </div>
 
-
+<!-- المنتج الحادي عشر -->
 
 <div class="card">
 
-<img src="images/WhatsApp Image 2026-07-25 at 1.56.21 AM (2).jpeg" >
+<img src="images/WhatsApp Image 2026-07-25 at 1.56.21 AM (2).jpeg">
 
 <div class="info">
 
-<h3>بلوزه (mint green)</h3>
+<h3>بلوزة (Mint Green)</h3>
 
-<p> تنسيل بليسيه</p>
+<p>تنسيل بليسيه</p>
 
 <span>600 جنيه</span>
 
+<button class="add-cart"
+data-name="بلوزة Mint Green"
+data-price="600">
+
+<i class="fa-solid fa-cart-plus"></i>
+
+أضف إلى السلة
+
+</button>
 
 </div>
+
 </div>
 
-
-
+<!-- المنتج الثاني عشر -->
 
 <div class="card">
 
-<img src="images/WhatsApp Image 2026-07-25 at 1.56.21 AM (3).jpeg" >
+<img src="images/WhatsApp Image 2026-07-25 at 1.56.21 AM (3).jpeg">
 
 <div class="info">
 
-<h3>بلوزه (black)</h3>
+<h3>بلوزة (Black)</h3>
 
-<p> تنسيل بليسيه</p>
+<p>تنسيل بليسيه</p>
 
 <span>600 جنيه</span>
 
+<button class="add-cart"
+data-name="بلوزة Black"
+data-price="600">
+
+<i class="fa-solid fa-cart-plus"></i>
+
+أضف إلى السلة
+
+</button>
 
 </div>
+
 </div>
 
-
-
-
+<!-- المنتج الثالث عشر -->
 
 <div class="card">
 
-<img src="images/WhatsApp Image 2026-07-25 at 1.56.22 AM (1).jpeg" >
+<img src="images/WhatsApp Image 2026-07-25 at 1.56.22 AM (1).jpeg">
 
 <div class="info">
 
-<h3>بلوزه (brown)</h3>
+<h3>بلوزة (Brown)</h3>
 
-<p> تنسيل بليسيه</p>
+<p>تنسيل بليسيه</p>
 
 <span>600 جنيه</span>
 
+<button class="add-cart"
+data-name="بلوزة Brown"
+data-price="600">
+
+<i class="fa-solid fa-cart-plus"></i>
+
+أضف إلى السلة
+
+</button>
 
 </div>
+
 </div>
 
-
-
-
+<!-- المنتج الرابع عشر -->
 
 <div class="card">
 
-<img src="images/WhatsApp Image 2026-07-25 at 1.56.22 AM (2).jpeg" >
+<img src="images/WhatsApp Image 2026-07-25 at 1.56.22 AM (2).jpeg">
 
 <div class="info">
 
-<h3>بلوزه (yellow)</h3>
+<h3>بلوزة (Yellow)</h3>
 
-<p> تنسيل بليسيه</p>
+<p>تنسيل بليسيه</p>
 
 <span>650 جنيه</span>
 
+<button class="add-cart"
+data-name="بلوزة Yellow"
+data-price="650">
+
+<i class="fa-solid fa-cart-plus"></i>
+
+أضف إلى السلة
+
+</button>
 
 </div>
+
 </div>
 
+<!-- المنتج الخامس عشر -->
 
 <div class="card">
 
-<img src="images/WhatsApp Image 2026-07-25 at 1.56.22 AM (3).jpeg" >
+<img src="images/WhatsApp Image 2026-07-25 at 1.56.22 AM (3).jpeg">
 
 <div class="info">
 
-<h3>بلوزه (white)</h3>
+<h3>بلوزة (White)</h3>
 
-<p> تنسيل بليسيه</p>
+<p>تنسيل بليسيه</p>
 
 <span>650 جنيه</span>
 
+<button class="add-cart"
+data-name="بلوزة White"
+data-price="650">
+
+<i class="fa-solid fa-cart-plus"></i>
+
+أضف إلى السلة
+
+</button>
 
 </div>
+
 </div>
+
 </div>
+
+</section>
+
+<!-- سلة المشتريات -->
+
+<section class="cart-section">
+
+<h2>🛒 سلة المشتريات</h2>
+
+<div id="cart-items">
+
+<p>لا توجد منتجات في السلة.</p>
+
+</div>
+
+<h3>
+الإجمالي:
+<span id="total-price">0</span> جنيه
+</h3>
+
+<button id="checkout-btn">
+إتمام الطلب
+</button>
+
+</section>
+<!-- صفحة إتمام الطلب -->
+
+<section class="checkout-section" id="checkout-section">
+
+<h2>إتمام الطلب</h2>
+
+<form id="checkout-form">
+
+<input type="text"
+id="name"
+placeholder="الاسم بالكامل"
+required>
+
+<input type="tel"
+id="phone"
+placeholder="رقم الهاتف"
+required>
+
+<textarea
+id="address"
+placeholder="العنوان بالكامل"
+required></textarea>
+
+<select id="payment">
+
+<option value="الدفع عند الاستلام">
+الدفع عند الاستلام
+</option>
+
+</select>
+
+<button type="submit">
+تأكيد الطلب
+</button>
+
+</form>
+
+</section>
+
 <footer>
 
 <hr>
 
-<p>Designed & Developed by <span>Eng Mostafa Ahmed</span> © 2026</p>
+<p>
+Designed & Developed by
+<span>Eng Mostafa Ahmed</span>
+© 2026
+</p>
 
 </footer>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
+
+</body>
+</html>
