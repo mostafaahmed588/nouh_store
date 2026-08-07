@@ -1,4 +1,3 @@
-```javascript
 // =======================
 // Firebase Setup
 // =======================
@@ -9,7 +8,9 @@ import {
     getFirestore,
     collection,
     addDoc,
-    getDocs
+    getDocs,
+    query,
+    limit
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
@@ -62,7 +63,7 @@ let total = 0;
 
 
 // =======================
-// تحميل المنتجات من Firebase
+// تحميل المنتجات من Firebase (بحد أقصى 10)
 // =======================
 
 async function loadProducts() {
@@ -77,8 +78,9 @@ async function loadProducts() {
 
     try {
 
-        const productsSnapshot =
-            await getDocs(collection(db, "products"));
+        // جلب أول 10 منتجات فقط باستخدام limit
+        const q = query(collection(db, "products"), limit(10));
+        const productsSnapshot = await getDocs(q);
 
         productsContainer.innerHTML = "";
 
@@ -478,4 +480,3 @@ loadProducts();
 // تشغيل السلة
 
 updateCart();
-```
