@@ -1,0 +1,264 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Cairo", sans-serif;
+}
+
+body {
+    background: #f3f5f7;
+    color: #222;
+    min-height: 100vh;
+}
+
+/* Header */
+
+.dashboard-header {
+    background: #111;
+    color: white;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.dashboard-header h1 {
+    font-size: 30px;
+    color: #d4af37;
+}
+
+.dashboard-header p {
+    color: #ddd;
+    margin-top: 3px;
+}
+
+#logout-btn {
+    border: none;
+    background: #d4af37;
+    color: #111;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#logout-btn:hover {
+    background: white;
+}
+
+/* Dashboard */
+
+.dashboard {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+/* Welcome */
+
+.welcome-box {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.welcome-box h2 {
+    margin-bottom: 8px;
+}
+
+/* Add Product */
+
+.add-product,
+.products-admin {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.add-product h2,
+.products-admin h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#product-form input,
+#product-form textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+#product-form input:focus,
+#product-form textarea:focus {
+    border-color: #d4af37;
+}
+
+#product-form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+#product-form button {
+    border: none;
+    background: #111;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#product-form button:hover {
+    background: #d4af37;
+    color: #111;
+}
+
+#product-message {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* Products */
+
+#admin-products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.admin-product {
+    border: 1px solid #eee;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.admin-product img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.admin-product-info {
+    padding: 18px;
+}
+
+.admin-product-info h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.admin-product-info p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.admin-product-info strong {
+    display: block;
+    color: #d4af37;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.delete-product {
+    width: 100%;
+    border: none;
+    background: #d32f2f;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.delete-product:hover {
+    background: #a80000;
+}
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .dashboard-header {
+        padding: 18px;
+        align-items: flex-start;
+    }
+
+    .dashboard-header h1 {
+        font-size: 24px;
+    }
+
+    .dashboard-header p {
+        font-size: 13px;
+    }
+
+    #logout-btn {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+    .dashboard {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    .add-product,
+    .products-admin,
+    .welcome-box {
+        padding: 20px;
+    }
+
+    #admin-products {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    #logout-btn {
+        width: 100%;
+    }
+
+    .dashboard {
+        width: 94%;
+    }
+
+    #admin-products {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-product img {
+        height: 240px;
+    }
+
+    .add-product h2,
+    .products-admin h2 {
+        font-size: 22px;
+    }
+
+}
