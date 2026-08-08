@@ -9,8 +9,7 @@ import {
     collection,
     addDoc,
     getDocs,
-    query,
-    limit
+    query
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
@@ -55,18 +54,20 @@ const form =
 
 
 // =======================
-// السلة
+// السلة وتغييرات الصفحات
 // =======================
 
 let cart = [];
 let total = 0;
+let currentPage = 1;
+const itemsPerPage = 10;
 
 
 // =======================
-// تحميل المنتجات من Firebase (بحد أقصى 10)
+// تحميل المنتجات من Firebase (مع التقسيم التلقائي لكل 10 منتجات)
 // =======================
 
-async function loadProducts() {
+async function loadProducts(page = 1) {
 
     if (!productsContainer) return;
 
@@ -78,27 +79,41 @@ async function loadProducts() {
 
     try {
 
-        // جلب أول 10 منتجات فقط باستخدام limit
-        const q = query(collection(db, "products"), limit(10));
-        const productsSnapshot = await getDocs(q);
+        // جلب كل المنتجات لمعرفة العدد الكلي وحساب عدد الصفحات
+        const querySnapshot = await getDocs(collection(db, "products"));
+        const totalProducts = querySnapshot.size;
 
-        productsContainer.innerHTML = "";
-
-        if (productsSnapshot.empty) {
+        if (totalProducts === 0) {
 
             productsContainer.innerHTML = `
                 <p style="text-align:center; width:100%;">
                     لا توجد منتجات حاليًا.
                 </p>
             `;
-
+            removePaginationUI();
             return;
         }
 
+        const totalPages = Math.ceil(totalProducts / itemsPerPage);
 
-        productsSnapshot.forEach((doc) => {
+        // التحقق من نطاق الصفحة الحالية
+        if (page < 1) page = 1;
+        if (page > totalPages) page = totalPages;
+        currentPage = page;
 
-            const product = doc.data();
+        // تجهيز المنتجات لعرض الصفحة المطلوبة فقط
+        const allDocs = [];
+        querySnapshot.forEach((doc) => {
+            allDocs.push({ id: doc.id, ...doc.data() });
+        });
+
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const currentProducts = allDocs.slice(startIndex, endIndex);
+
+        productsContainer.innerHTML = "";
+
+        currentProducts.forEach((product) => {
 
             const name = product.name || "منتج بدون اسم";
             const description = product.description || "";
@@ -155,6 +170,9 @@ async function loadProducts() {
         // ربط أزرار إضافة المنتجات للسلة
         connectCartButtons();
 
+        // بناء أو تحديث أزرار التنقل بين الصفحات
+        renderPaginationUI(totalPages);
+
 
     } catch (error) {
 
@@ -168,6 +186,55 @@ async function loadProducts() {
                 حدث خطأ أثناء تحميل المنتجات.
             </p>
         `;
+    }
+}
+
+
+// =======================
+// إنشاء وعرض أزرار التنقل بين الصفحات
+// =======================
+
+function renderPaginationUI(totalPages) {
+    let paginationContainer = document.getElementById("pagination-container");
+    
+    if (!paginationContainer) {
+        paginationContainer = document.createElement("div");
+        paginationContainer.id = "pagination-container";
+        paginationContainer.style.cssText = "display: flex; justify-content: center; gap: 10px; margin: 30px 0; width: 100%; grid-column: 1 / -1;";
+        productsContainer.after(paginationContainer);
+    }
+
+    paginationContainer.innerHTML = "";
+
+    if (totalPages <= 1) return;
+
+    for (let i = 1; i <= totalPages; i++) {
+        const pageBtn = document.createElement("button");
+        pageBtn.textContent = i;
+        pageBtn.style.cssText = `
+            padding: 8px 15px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background-color: ${i === currentPage ? '#000' : '#fff'};
+            color: ${i === currentPage ? '#fff' : '#000'};
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        `;
+
+        pageBtn.addEventListener("click", () => {
+            loadProducts(i);
+            document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+        });
+
+        paginationContainer.appendChild(pageBtn);
+    }
+}
+
+function removePaginationUI() {
+    const paginationContainer = document.getElementById("pagination-container");
+    if (paginationContainer) {
+        paginationContainer.remove();
     }
 }
 
@@ -472,11 +539,8 @@ if (form) {
 // تشغيل الموقع
 // =======================
 
-// تحميل المنتجات من Firebase
-
-loadProducts();
-
+// تحميل المنتجات من Firebase (الصفحة الأولى)
+loadProducts(1);
 
 // تشغيل السلة
-
 updateCart();
